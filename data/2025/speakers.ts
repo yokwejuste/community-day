@@ -10,7 +10,7 @@ export const knspeakers = [
     name: "Olivier Leplus",
     role: "Developer Advocate",
     company: "Amazon Web Services",
-    image: "/2025/speakers/olivier-leplus.png",
+    image: "/2025/speakers/olivier-leplus.jpg",
     linkedin: "https://www.linkedin.com/in/olivierleplus/",
   },
 ];
