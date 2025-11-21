@@ -37,6 +37,9 @@
                 <a href="#organizers">{{ $t("organizers") }}</a>
               </li>
               <li>
+                <a href="#mcs">{{ $t("mcs") }}</a>
+              </li>
+              <li>
                 <a href="#volunteers">{{ $t("volunteers") }}</a>
               </li>
               <li><a href="#faq">FAQ</a></li>
@@ -730,6 +733,44 @@
         </section>
 
         <!-- ==========================
+              MCs Section
+            ============================-->
+        <section
+          id="mcs"
+          class="wow fadeIn"
+          style="visibility: visible; animation-name: fadeIn"
+        >
+          <div class="container">
+            <div class="section-header">
+              <h2>{{ $t("mcs") }}</h2>
+            </div>
+
+            <!-- <h2 class="text-center">{{ $t("coming") }}</h2> -->
+
+            <div class="row">
+              <div v-if="windowWidth > 991" class="col-lg-3 col-6"></div>
+              <div v-for="person in mcs" class="col-lg-3 col-6">
+                <div class="speaker" @click="openLink(person.linkedin)">
+                  <img
+                    :src="person.image"
+                    alt="Speaker"
+                    class="img-fluid speaker-organizer-image"
+                  />
+                  <div class="details">
+                    <h3>
+                      <a :href="person.linkedin" target="_blank">{{
+                        person.name
+                      }}</a>
+                    </h3>
+                    <p>{{ person.group }}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ==========================
               Volunteers Section
             ============================-->
         <div id="volunteers">
@@ -963,12 +1004,13 @@
   </div>
 </template>
 <script setup type="ts">
-import { knspeakers, speakers } from '~/data/2025/speakers';
-import { organizers } from '~/data/2025/organizers';
-import { goldSponsors, communitySponsors, communityPartners } from '~/data/2025/sponsors';
-import { userGroups } from '~/data/2025/userGroups';
-import { use2025Utils } from '~/composables/use2025Utils';
 import TableComponent from '~/components/2025/TableComponent.vue';
+import { use2025Utils } from '~/composables/use2025Utils';
+import { mcs } from '~/data/2025/mcs';
+import { organizers } from '~/data/2025/organizers';
+import { knspeakers, speakers } from '~/data/2025/speakers';
+import { communityPartners, communitySponsors, goldSponsors } from '~/data/2025/sponsors';
+import { userGroups } from '~/data/2025/userGroups';
 
 definePageMeta({
   layout: 'home'
